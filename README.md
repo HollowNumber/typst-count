@@ -89,7 +89,7 @@ typst-count document.typ --min-chars 2000 --max-chars 5000
 
 - **Counted**: All text that appears in the final rendered document
 - **Counted**: Content from imported/included files (by default)
-- **Not counted**: Markup syntax (like `*bold*`, `_italic_`)
+- **Counted**: Markup syntax (like `*bold*`, `_italic_`)
 - **Not counted**: Code blocks and inline code
 - **Not counted**: Comments
 - **Not counted**: Function definitions and calls
