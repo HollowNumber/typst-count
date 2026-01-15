@@ -37,5 +37,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - MIT license
 - Code examples and CLI usage documentation
 
-[Unreleased]: https://github.com/MikkelPaulson/typst-count/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/MikkelPaulson/typst-count/releases/tag/v0.1.0
+[Unreleased]: https://github.com/HollowNumber/typst-count/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/HollowNumber/typst-count/releases/tag/v0.1.0

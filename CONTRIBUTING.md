@@ -39,7 +39,7 @@ This project follows a simple code of conduct: be respectful, be constructive, a
 
 3. **Add the upstream remote**:
    ```bash
-   git remote add upstream https://github.com/MikkelPaulson/typst-count.git
+   git remote add upstream https://github.com/HollowNumber/typst-count.git
    ```
 
 4. **Build the project**:
