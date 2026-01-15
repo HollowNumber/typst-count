@@ -2098,7 +2098,6 @@ dependencies = [
  "anyhow",
  "clap",
  "typst",
- "typst-syntax",
 ]
 
 [[package]]

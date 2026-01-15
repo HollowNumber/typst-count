@@ -1,1 +1,53 @@
+# Rust build artifacts
 /target
+**/target
+
+# Cargo.lock for libraries (keep for binaries)
+# We keep it since this is a binary crate
+
+# Debug and test artifacts
+**/*.rs.bk
+*.pdb
+
+# Output files from testing
+*.csv
+*.json
+counts.*
+results.*
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS-specific files
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Backup files
+*.bak
+*.backup
+
+# Test output
+test_output/
+tmp/
+
+# Generated documentation
+/doc
+
+# Profiling and benchmarking data
+*.profdata
+*.gcda
+*.gcno
+
+# Local development
+.env
+.env.local
