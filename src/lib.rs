@@ -25,7 +25,6 @@
 //! let count = compile_document(path, false).unwrap();
 //! println!("Words: {}, Characters: {}", count.words, count.characters);
 //! ```
-#[allow(clippy::multiple_crate_versions)]
 pub mod cli;
 pub mod counter;
 pub mod output;
@@ -79,9 +78,14 @@ pub fn compile_document(path: &Path, exclude_imports: bool) -> Result<Count> {
     let main_file_id = world.main();
 
     let result = typst::compile(&world);
-    let document: PagedDocument = result
-        .output
-        .map_err(|errors| anyhow::anyhow!("Failed to compile {}: {:?}", path.display(), errors))?;
+    let document: PagedDocument = result.output.map_err(|errors| {
+        let error_msg = errors
+            .iter()
+            .map(|e| format!("{}", e.message))
+            .collect::<Vec<_>>()
+            .join(", ");
+        anyhow::anyhow!("Failed to compile {}: {}", path.display(), error_msg)
+    })?;
 
     Ok(counter::count_document(
         &document.introspector,
