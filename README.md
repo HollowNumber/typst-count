@@ -26,7 +26,7 @@ cargo install typst-count
 ### From source
 
 ```bash
-git clone https://github.com/MikkelPaulson/typst-count.git
+git clone https://github.com/HollowNumber/typst-count.git
 cd typst-count
 cargo install --path .
 ```
@@ -164,7 +164,7 @@ Contributions are welcome! Please feel free to submit issues or pull requests.
 
 ```bash
 # Clone the repository
-git clone https://github.com/MikkelPaulson/typst-count.git
+git clone https://github.com/HollowNumber/typst-count.git
 cd typst-count
 
 # Run tests
