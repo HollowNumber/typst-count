@@ -8,7 +8,8 @@ use typst::introspection::Introspector;
 use typst::math::EquationElem;
 use typst::model::{EmphElem, StrongElem};
 use typst::syntax::FileId;
-use typst::text::{OverlineElem, StrikeElem, SubElem, SuperElem, UnderlineElem};
+use typst::syntax::ast::CodeBlock;
+use typst::text::{OverlineElem, RawElem, StrikeElem, SubElem, SuperElem, UnderlineElem};
 
 /// Result of counting words and characters in a document.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -150,6 +151,7 @@ fn is_styling_element(element: &typst::foundations::Content) -> bool {
         || element.is::<SubElem>()
         || element.is::<SuperElem>()
         || element.is::<EquationElem>() // Skip math equations
+        || element.is::<RawElem>()
         || element.func().name() == "highlight" // highlight doesn't have a public struct
 }
 
