@@ -246,7 +246,7 @@ mod tests {
             characters: 500,
         };
         let output = format_single(&count, true, CountMode::Both);
-        assert_eq!(output, "100 500");
+        assert_eq!(output, "100 500\n");
     }
 
     #[test]
@@ -256,7 +256,7 @@ mod tests {
             characters: 500,
         };
         let output = format_single(&count, true, CountMode::Words);
-        assert_eq!(output, "42");
+        assert_eq!(output, "42\n");
     }
 
     #[test]
