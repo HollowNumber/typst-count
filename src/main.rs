@@ -52,15 +52,24 @@ fn write_output(content: &str, output_path: Option<&Path>) -> Result<()> {
 /// - `0`: Success - all files processed and limits satisfied
 /// - `1`: Limit violation - counts exceed or fall below specified limits
 /// - `2`: Error - compilation failure or other error
-fn main() -> Result<()> {
+fn main() {
     let args = cli::Cli::parse();
 
-    let results = process_files(&args)?;
+    let results = match process_files(&args) {
+        Ok(results) => results,
+        Err(e) => {
+            eprintln!("Error: {e:?}");
+            process::exit(2);
+        }
+    };
 
     let formatter = output::OutputFormatter::new(args.format, args.mode);
     let output_text = formatter.format_output(&results, args.display);
 
-    write_output(&output_text, args.output.as_deref())?;
+    if let Err(e) = write_output(&output_text, args.output.as_deref()) {
+        eprintln!("Error: {e:?}");
+        process::exit(2);
+    }
 
     let total = output::calculate_total(&results);
     if let Err(errors) = check_limits(&args, &total) {
@@ -70,5 +79,5 @@ fn main() -> Result<()> {
         process::exit(1);
     }
 
-    Ok(())
+    process::exit(0);
 }
