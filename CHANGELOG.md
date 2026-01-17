@@ -11,8 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Exit code 2 now properly used for compilation and I/O errors (was incorrectly using exit code 1)
 - Output formatting in quiet mode now includes trailing newline
 
-
-## [0.1.0] - 2025-01-XX
+## [0.1.0] - 2026-01-17
 
 ### Added
 - Initial release of typst-count
