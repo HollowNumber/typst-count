@@ -50,15 +50,15 @@ fn format_single(count: &Count, quiet: bool, mode: CountMode) -> String {
     match (mode, quiet) {
         (CountMode::Both, false) => {
             format!(
-                " Words:      {}\n Characters: {}",
+                " Words:      {}\n Characters: {}\n",
                 count.words, count.characters
             )
         }
-        (CountMode::Both, true) => format!("{} {}", count.words, count.characters),
-        (CountMode::Words, false) => format!(" Words:      {}", count.words),
-        (CountMode::Words, true) => format!("{}", count.words),
-        (CountMode::Characters, false) => format!(" Characters: {}", count.characters),
-        (CountMode::Characters, true) => format!("{}", count.characters),
+        (CountMode::Both, true) => format!("{} {}\n", count.words, count.characters),
+        (CountMode::Words, false) => format!(" Words:      {}\n", count.words),
+        (CountMode::Words, true) => format!("{}\n", count.words),
+        (CountMode::Characters, false) => format!(" Characters: {}\n", count.characters),
+        (CountMode::Characters, true) => format!("{}\n", count.characters),
     }
 }
 
@@ -246,7 +246,7 @@ mod tests {
             characters: 500,
         };
         let output = format_single(&count, true, CountMode::Both);
-        assert_eq!(output, "100 500");
+        assert_eq!(output, "100 500\n");
     }
 
     #[test]
@@ -256,7 +256,7 @@ mod tests {
             characters: 500,
         };
         let output = format_single(&count, true, CountMode::Words);
-        assert_eq!(output, "42");
+        assert_eq!(output, "42\n");
     }
 
     #[test]
