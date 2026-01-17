@@ -8,7 +8,6 @@ use typst::introspection::Introspector;
 use typst::math::EquationElem;
 use typst::model::{EmphElem, StrongElem};
 use typst::syntax::FileId;
-use typst::syntax::ast::CodeBlock;
 use typst::text::{OverlineElem, RawElem, StrikeElem, SubElem, SuperElem, UnderlineElem};
 
 /// Result of counting words and characters in a document.
@@ -133,6 +132,7 @@ pub fn count_document(
 /// - `super` - Superscript text
 /// - `highlight` - Highlighted text
 /// - `equation` - Math equations (`$...$` or `$ ... $`)
+/// - `raw` - code blocks `code`
 ///
 /// # Examples
 ///
